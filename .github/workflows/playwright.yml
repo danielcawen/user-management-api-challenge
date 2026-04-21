@@ -49,10 +49,11 @@ jobs:
         run: |
           mkdir -p gh-pages
           cp reports/cucumber-report-${{ inputs.environment }}.html gh-pages/index.html
+      - name: Upload Pages artifact
+        if: ${{ !cancelled() }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./gh-pages
       - name: Deploy to GitHub Pages
         if: ${{ !cancelled() }}
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./gh-pages
-          keep_files: false
+        uses: actions/deploy-pages@v4
