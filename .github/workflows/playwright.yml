@@ -14,6 +14,10 @@ on:
   #   branches: [ main ]
   # pull_request:
   #   branches: [ main ]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 jobs:
   test:
     timeout-minutes: 60
@@ -40,3 +44,15 @@ jobs:
           name: cucumber-report
           path: reports/
           retention-days: 30
+      - name: Prepare Pages content
+        if: ${{ !cancelled() }}
+        run: |
+          mkdir -p gh-pages
+          cp reports/cucumber-report-${{ inputs.environment }}.html gh-pages/index.html
+      - name: Deploy to GitHub Pages
+        if: ${{ !cancelled() }}
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gh-pages
+          keep_files: false
