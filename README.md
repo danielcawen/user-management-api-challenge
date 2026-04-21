@@ -32,3 +32,6 @@ npm test:prod
 - [all bugs](bugs/bugs.md)
 - [prod report example](bugs/cucumber-report-prod.html)
 - [dev report example](bugs/cucumber-report-dev.html)
+
+## latest test report
+[View latest report](https://danielcawen.github.io/user-management-api-challenge/)
