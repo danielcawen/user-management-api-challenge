@@ -1,0 +1,41 @@
+{
+  "default": {
+    "require": ["e2e/steps/**/*.js", "e2e/support/**/*.js"],
+    "paths": ["e2e/features/**/*.feature"],
+    "parallel": 0,
+    "format": [
+      "progress",
+      "html:reports/cucumber-report.html",
+      "json:reports/cucumber-report.json"
+    ],
+    "formatOptions": {
+      "snippetInterface": "async-await"
+    }
+  },
+  "dev": {
+    "require": ["e2e/steps/**/*.js", "e2e/support/**/*.js"],
+    "paths": ["e2e/features/**/*.feature"],
+    "parallel": 0,
+    "format": [
+      "progress",
+      "html:reports/cucumber-report-dev.html",
+      "json:reports/cucumber-report-dev.json"
+    ],
+    "formatOptions": {
+      "snippetInterface": "async-await"
+    }
+  },
+  "prod": {
+    "require": ["e2e/steps/**/*.js", "e2e/support/**/*.js"],
+    "paths": ["e2e/features/**/*.feature"],
+    "parallel": 0,
+    "format": [
+      "progress",
+      "html:reports/cucumber-report-prod.html",
+      "json:reports/cucumber-report-prod.json"
+    ],
+    "formatOptions": {
+      "snippetInterface": "async-await"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "user-management-api-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "mkdir -p reports",
+    "test": "NODE_ENV=local cucumber-js",
+    "test:dev": "NODE_ENV=dev cucumber-js --profile dev",
+    "test:prod": "NODE_ENV=prod cucumber-js --profile prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielcawen/user-management-api-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/danielcawen/user-management-api-challenge/issues"
+  },
+  "homepage": "https://github.com/danielcawen/user-management-api-challenge#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.8.1",
+    "@types/node": "^25.6.0",
+    "dotenv": "^17.4.2",
+    "prettier": "^3.8.3"
+  }
+}

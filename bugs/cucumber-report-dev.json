@@ -1,0 +1,2131 @@
+[
+  {
+    "description": "  As an API consumer\n  I want to create a user\n  So that I can register new users in an environment",
+    "elements": [
+      {
+        "description": "",
+        "id": "create-user;create-a-user-with-valid-data-returns-201",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Create a user with valid data returns 201",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 441371
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I create a user with name \"juan perez\", email \"juan.perez@efake.com\" and age 30",
+            "match": {
+              "location": "e2e/steps/users.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40447538
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "the response status should be 201",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 107063
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "the response body contains a user with email \"juan.perez@efake.com\"",
+            "match": {
+              "location": "e2e/steps/users.js:131"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 63532
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the response body contains the user name \"juan perez\"",
+            "match": {
+              "location": "e2e/steps/users.js:139"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 73391
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the response body contains the user age 30",
+            "match": {
+              "location": "e2e/steps/users.js:147"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 54451
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 7017764
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "create-user;create-a-user-response-contains-all-required-fields",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Create a user response contains all required fields",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 61711
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I create a user with name \"juan perez\", email \"juan.perez@efake.com\" and age 25",
+            "match": {
+              "location": "e2e/steps/users.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7031796
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "the response status should be 201",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71922
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the response body contains fields \"name\", \"email\" and \"age\"",
+            "match": {
+              "location": "e2e/steps/users.js:155"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 89171
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 6619315
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "create-user;create-a-user-with-duplicate-email-returns-409",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Create a user with duplicate email returns 409",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 79922
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 19,
+            "name": "a user exists with name \"Original User\", email \"duplicate@efake.com\" and age 20",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10145892
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "I create a user with name \"Another User\", email \"duplicate@efake.com\" and age 22",
+            "match": {
+              "location": "e2e/steps/users.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2930993
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "the response status should be 409",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 698508,
+              "error_message": "AssertionError [ERR_ASSERTION]: Expected status 409 but got 500. Body: {\"error\":\"Internal server error\"}\n\n500 !== 409\n\n    + expected - actual\n\n    -500\n    +409\n\n    at World.<anonymous> (/home/kiwi/Documents/user-management-api-challenge/e2e/steps/users.js:109:10)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 6349169
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "create-user;create-a-user-with-missing-name-returns-400",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Create a user with missing name returns 400",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 57681
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 25,
+            "name": "I create a user with missing \"name\" field using email \"missingname@efake.com\" and age 28",
+            "match": {
+              "location": "e2e/steps/users.js:36"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2953594
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 26,
+            "name": "the response status should be 400",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 59482
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70442
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 56861
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "create-user;create-a-user-with-missing-email-returns-400",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Create a user with missing email returns 400",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 41090
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 30,
+            "name": "I create a user with missing \"email\" field using name \"No Email User\" and age 28",
+            "match": {
+              "location": "e2e/steps/users.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2313317
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
+            "name": "the response status should be 400",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 30741
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19510
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 39371
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "create-user;create-a-user-with-missing-age-returns-400",
+        "keyword": "Scenario",
+        "line": 34,
+        "name": "Create a user with missing age returns 400",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 39151
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 35,
+            "name": "I create a user with missing \"age\" field using name \"No Age User\" and email \"noage@efake.com\"",
+            "match": {
+              "location": "e2e/steps/users.js:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1729682
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 36,
+            "name": "the response status should be 400",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27641
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17651
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 21939
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "create-user;create-a-user-with-age-below-minimum-(0)-returns-400",
+        "keyword": "Scenario",
+        "line": 39,
+        "name": "Create a user with age below minimum (0) returns 400",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 24810
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 40,
+            "name": "I create a user with name \"Too Young\", email \"tooyoung@efake.com\" and age 0",
+            "match": {
+              "location": "e2e/steps/users.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1628419
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 41,
+            "name": "the response status should be 400",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 29281
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16851
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 27260
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "create-user;create-a-user-with-age-above-maximum-(151)-returns-400",
+        "keyword": "Scenario",
+        "line": 44,
+        "name": "Create a user with age above maximum (151) returns 400",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 26410
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 45,
+            "name": "I create a user with name \"Too Old\", email \"tooold@efake.com\" and age 151",
+            "match": {
+              "location": "e2e/steps/users.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1393153
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 46,
+            "name": "the response status should be 400",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26151
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17519
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 37650
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "create-user;create-a-user-with-minimum-valid-age-(1)-returns-201",
+        "keyword": "Scenario",
+        "line": 49,
+        "name": "Create a user with minimum valid age (1) returns 201",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 30681
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 50,
+            "name": "I create a user with name \"Young Valid\", email \"youngvalid@efake.com\" and age 1",
+            "match": {
+              "location": "e2e/steps/users.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5908378
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "the response status should be 201",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 49940
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 5761563
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "create-user;create-a-user-with-maximum-valid-age-(150)-returns-201",
+        "keyword": "Scenario",
+        "line": 53,
+        "name": "Create a user with maximum valid age (150) returns 201",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 47591
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 54,
+            "name": "I create a user with name \"Old Valid\", email \"oldvalid@efake.com\" and age 150",
+            "match": {
+              "location": "e2e/steps/users.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6484601
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 55,
+            "name": "the response status should be 201",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 51622
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 5778893
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "create-user",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Create User",
+    "tags": [],
+    "uri": "e2e/features/create_user.feature"
+  },
+  {
+    "description": "  As an API consumer\n  I want to delete a user\n  So that I can remove users from an environment",
+    "elements": [
+      {
+        "description": "",
+        "id": "delete-user;delete-an-existing-user-with-valid-auth-returns-204",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Delete an existing user with valid auth returns 204",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 47520
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "a user exists with name \"To Be Deleted\", email \"todelete@example.com\" and age 30",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21495996
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I delete user with email \"todelete@example.com\" using valid authentication",
+            "match": {
+              "location": "e2e/steps/users.js:86"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9517988
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the response status should be 204",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 55120
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 30039
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "delete-user;deleted-user-no-longer-exists",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Deleted user no longer exists",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 37970
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "a user exists with name \"Delete Verify\", email \"deleteverify@example.com\" and age 30",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7548349
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I delete user with email \"deleteverify@example.com\" using valid authentication",
+            "match": {
+              "location": "e2e/steps/users.js:86"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5818584
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the response status should be 204",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40480
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "I get user with email \"deleteverify@example.com\"",
+            "match": {
+              "location": "e2e/steps/users.js:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2142923
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 177623,
+              "error_message": "AssertionError [ERR_ASSERTION]: Expected status 404 but got 500. Body: {\"error\":\"Internal server error\"}\n\n500 !== 404\n\n    + expected - actual\n\n    -500\n    +404\n\n    at World.<anonymous> (/home/kiwi/Documents/user-management-api-challenge/e2e/steps/users.js:109:10)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 29191
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "delete-user;delete-a-user-without-authentication-returns-401",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Delete a user without authentication returns 401",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 28880
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 19,
+            "name": "a user exists with name \"Auth Required\", email \"authrequired@example.com\" and age 30",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8696806
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "I delete user with email \"authrequired@example.com\" without authentication",
+            "match": {
+              "location": "e2e/steps/users.js:94"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5721362
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "the response status should be 401",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 159913,
+              "error_message": "AssertionError [ERR_ASSERTION]: Expected status 401 but got 204. Body: null\n\n204 !== 401\n\n    + expected - actual\n\n    -204\n    +401\n\n    at World.<anonymous> (/home/kiwi/Documents/user-management-api-challenge/e2e/steps/users.js:109:10)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1599490
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "delete-user;delete-a-user-with-an-invalid-token-returns-401",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Delete a user with an invalid token returns 401",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 32501
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 25,
+            "name": "a user exists with name \"Bad Token User\", email \"badtoken@example.com\" and age 30",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7387373
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "I delete user with email \"badtoken@example.com\" using token \"wrongtoken\"",
+            "match": {
+              "location": "e2e/steps/users.js:101"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5816745
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "the response status should be 401",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 200094,
+              "error_message": "AssertionError [ERR_ASSERTION]: Expected status 401 but got 204. Body: null\n\n204 !== 401\n\n    + expected - actual\n\n    -204\n    +401\n\n    at World.<anonymous> (/home/kiwi/Documents/user-management-api-challenge/e2e/steps/users.js:109:10)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2041430
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "delete-user;delete-a-non-existent-user-returns-404",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "Delete a non-existent user returns 404",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 39130
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 31,
+            "name": "I delete user with email \"doesnotexist@example.com\" using valid authentication",
+            "match": {
+              "location": "e2e/steps/users.js:86"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1714832
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 32,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37239
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 33,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23451
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 25430
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "delete-user",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Delete User",
+    "tags": [],
+    "uri": "e2e/features/delete_user.feature"
+  },
+  {
+    "description": "  As an API consumer\n  I want to retrieve a user by email\n  So that I can view user details",
+    "elements": [
+      {
+        "description": "",
+        "id": "get-user-by-email;get-an-existing-user-returns-200",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Get an existing user returns 200",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 26770
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "a user exists with name \"Get Test User\", email \"gettest@example.com\" and age 35",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7398713
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I get user with email \"gettest@example.com\"",
+            "match": {
+              "location": "e2e/steps/users.js:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1842917
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the response status should be 200",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36610
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 8985905
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "get-user-by-email;get-an-existing-user-returns-full-user-data",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Get an existing user returns full user data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 60030
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "a user exists with name \"Full Data User\", email \"fulldata@example.com\" and age 40",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7840154
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I get user with email \"fulldata@example.com\"",
+            "match": {
+              "location": "e2e/steps/users.js:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1656070
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the response status should be 200",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33820
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the response body contains a user with email \"fulldata@example.com\"",
+            "match": {
+              "location": "e2e/steps/users.js:131"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 30431
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the response body contains the user name \"Full Data User\"",
+            "match": {
+              "location": "e2e/steps/users.js:139"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25760
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the response body contains the user age 40",
+            "match": {
+              "location": "e2e/steps/users.js:147"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24651
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 5458346
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "get-user-by-email;get-a-non-existent-user-returns-404",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Get a non-existent user returns 404",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 42620
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "I get user with email \"nonexistent@example.com\"",
+            "match": {
+              "location": "e2e/steps/users.js:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1681851
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 127233,
+              "error_message": "AssertionError [ERR_ASSERTION]: Expected status 404 but got 500. Body: {\"error\":\"Internal server error\"}\n\n500 !== 404\n\n    + expected - actual\n\n    -500\n    +404\n\n    at World.<anonymous> (/home/kiwi/Documents/user-management-api-challenge/e2e/steps/users.js:109:10)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 27960
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "get-user-by-email",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Get User by Email",
+    "tags": [],
+    "uri": "e2e/features/get_user.feature"
+  },
+  {
+    "description": "  As an API consumer\n  I want to list all users in an environment\n  So that I can see who is registered",
+    "elements": [
+      {
+        "description": "",
+        "id": "list-users;list-users-returns-http-200",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "List users returns HTTP 200",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 27219
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I list all users",
+            "match": {
+              "location": "e2e/steps/users.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1673411
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "the response status should be 200",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33871
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 25240
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "list-users;list-users-response-body-is-a-json-array",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "List users response body is a JSON array",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 26010
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "I list all users",
+            "match": {
+              "location": "e2e/steps/users.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1625900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "the response status should be 200",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37149
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the response body is a JSON array",
+            "match": {
+              "location": "e2e/steps/users.js:116"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68322
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 36351
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "list-users;newly-created-user-appears-in-the-list",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Newly created user appears in the list",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 42121
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 16,
+            "name": "a user exists with name \"List Test User\", email \"listtest@example.com\" and age 25",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7323502
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I list all users",
+            "match": {
+              "location": "e2e/steps/users.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1779525
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "the response status should be 200",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36840
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the response body is a JSON array",
+            "match": {
+              "location": "e2e/steps/users.js:116"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24329
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the list includes a user with email \"listtest@example.com\"",
+            "match": {
+              "location": "e2e/steps/users.js:123"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 105343
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 5416135
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "list-users",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "List Users",
+    "tags": [],
+    "uri": "e2e/features/list_users.feature"
+  },
+  {
+    "description": "  As an API consumer\n  I want to update an existing user\n  So that I can keep user information current",
+    "elements": [
+      {
+        "description": "",
+        "id": "update-user;update-an-existing-user-returns-200",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Update an existing user returns 200",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 46511
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "a user exists with name \"Original Name\", email \"updatetest@example.com\" and age 25",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12314217
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I update user with email \"updatetest@example.com\" to name \"Updated Name\" and age 26",
+            "match": {
+              "location": "e2e/steps/users.js:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2331128
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the response status should be 200",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37841
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the response body contains the user name \"Updated Name\"",
+            "match": {
+              "location": "e2e/steps/users.js:139"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37590
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the response body contains the user age 26",
+            "match": {
+              "location": "e2e/steps/users.js:147"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 28501
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 5514497
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "update-user;update-preserves-the-email-field",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Update preserves the email field",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 41900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 14,
+            "name": "a user exists with name \"Email Keeper\", email \"emailkeeper@example.com\" and age 30",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7492037
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "I update user with email \"emailkeeper@example.com\" to name \"Email Keeper Updated\" and age 31",
+            "match": {
+              "location": "e2e/steps/users.js:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2004600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the response status should be 200",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44361
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the response body contains a user with email \"emailkeeper@example.com\"",
+            "match": {
+              "location": "e2e/steps/users.js:131"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 34960
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 7568358
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "update-user;update-a-user-to-a-new-email-returns-200",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Update a user to a new email returns 200",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 54081
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 20,
+            "name": "a user exists with name \"Email Changer\", email \"oldemail@example.com\" and age 22",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11639269
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I update user with email \"oldemail@example.com\" to new email \"newemail@example.com\", name \"Email Changer\" and age 22",
+            "match": {
+              "location": "e2e/steps/users.js:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2248335
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the response status should be 200",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41781
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the response body contains a user with email \"newemail@example.com\"",
+            "match": {
+              "location": "e2e/steps/users.js:131"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 62100
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1793343
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "update-user;update-a-non-existent-user-returns-404",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Update a non-existent user returns 404",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 39550
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "I update user with email \"ghost@example.com\" to name \"Ghost\" and age 99",
+            "match": {
+              "location": "e2e/steps/users.js:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1648681
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27940
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19710
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 22220
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "update-user;update-a-user-with-missing-name-returns-400",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "Update a user with missing name returns 400",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 25319
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 31,
+            "name": "a user exists with name \"Valid User\", email \"validupdate@example.com\" and age 28",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7429876
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 32,
+            "name": "I update user with email \"validupdate@example.com\" with missing \"name\" field",
+            "match": {
+              "location": "e2e/steps/users.js:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1818515
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 33,
+            "name": "the response status should be 400",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39351
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 34,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21180
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 5610420
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "update-user;update-a-user-with-missing-age-returns-400",
+        "keyword": "Scenario",
+        "line": 36,
+        "name": "Update a user with missing age returns 400",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 56560
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 37,
+            "name": "a user exists with name \"Valid User 2\", email \"validupdate2@example.com\" and age 28",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7379213
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 38,
+            "name": "I update user with email \"validupdate2@example.com\" with missing \"age\" field",
+            "match": {
+              "location": "e2e/steps/users.js:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1644640
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 39,
+            "name": "the response status should be 400",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33131
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 40,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22141
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 5315802
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "update-user;update-a-user-with-duplicate-email-returns-409",
+        "keyword": "Scenario",
+        "line": 42,
+        "name": "Update a user with duplicate email returns 409",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 38601
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 43,
+            "name": "a user exists with name \"User A\", email \"usera@example.com\" and age 20",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7805934
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "a user exists with name \"User B\", email \"userb@example.com\" and age 21",
+            "match": {
+              "location": "e2e/steps/users.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11039104
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 45,
+            "name": "I update user with email \"usera@example.com\" to new email \"userb@example.com\", name \"User A\" and age 20",
+            "match": {
+              "location": "e2e/steps/users.js:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1909978
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 46,
+            "name": "the response status should be 409",
+            "match": {
+              "location": "e2e/steps/users.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 47561
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "the response body contains an error message",
+            "match": {
+              "location": "e2e/steps/users.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40600
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 11080627
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "update-user",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Update User",
+    "tags": [],
+    "uri": "e2e/features/update_user.feature"
+  }
+]
