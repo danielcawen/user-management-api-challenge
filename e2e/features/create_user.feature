@@ -3,6 +3,7 @@ Feature: Create User
   I want to create a user
   So that I can register new users in an environment
 
+  @smoke
   Scenario: Create a user with valid data returns 201
     When I create a user with name "juan perez", email "juan.perez@efake.com" and age 30
     Then the response status should be 201

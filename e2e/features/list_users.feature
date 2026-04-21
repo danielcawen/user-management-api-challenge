@@ -12,6 +12,7 @@ Feature: List Users
     Then the response status should be 200
     And the response body is a JSON array
 
+  @smoke
   Scenario: Newly created user appears in the list
     Given a user exists with name "List Test User", email "listtest@example.com" and age 25
     When I list all users

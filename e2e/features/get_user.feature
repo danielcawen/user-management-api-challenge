@@ -3,6 +3,7 @@ Feature: Get User by Email
   I want to retrieve a user by email
   So that I can view user details
 
+  @smoke
   Scenario: Get an existing user returns 200
     Given a user exists with name "Get Test User", email "gettest@example.com" and age 35
     When I get user with email "gettest@example.com"

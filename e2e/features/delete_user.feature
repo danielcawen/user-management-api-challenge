@@ -3,6 +3,7 @@ Feature: Delete User
   I want to delete a user
   So that I can remove users from an environment
 
+  @smoke
   Scenario: Delete an existing user with valid auth returns 204
     Given a user exists with name "To Be Deleted", email "todelete@example.com" and age 30
     When I delete user with email "todelete@example.com" using valid authentication
